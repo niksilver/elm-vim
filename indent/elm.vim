@@ -69,7 +69,7 @@ function! GetElmIndent()
 
 	" Indent double shift after let with an empty rhs
 	elseif l:lline =~# '\<let\>.*\s=$'
-		return l:ind + 4 + &shiftwidth
+		return l:ind + &shiftwidth + &shiftwidth
 
 	" Align 'in' with the parent let.
 	elseif l:line =~# '^\s*in\>'
@@ -77,11 +77,11 @@ function! GetElmIndent()
 
 	" Align bindings with the parent let.
 	elseif l:lline =~# '\<let\>'
-		return l:ind + 4
+		return l:ind + &shiftwidth
 
 	" Align bindings with the parent in.
 	elseif l:lline =~# '^\s*in\>'
-		return l:ind + 4
+		return l:ind + &shiftwidth
 
 	endif
 
